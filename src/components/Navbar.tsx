@@ -5,7 +5,7 @@ const links = [
   { label: "Practice", href: "#about", num: "01" },
   { label: "Diagnostics", href: "#services", num: "02" },
   { label: "Analytics", href: "#analytics", num: "03" },
-  { label: "Pathologists", href: "#doctors", num: "04" },
+  { label: "Physician", href: "#doctors", num: "04" },
   { label: "Patients", href: "#patients", num: "05" },
   { label: "Contact", href: "#contact", num: "07" },
 ];
