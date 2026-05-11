@@ -1,69 +1,81 @@
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight, BadgeCheck } from "lucide-react";
+import portrait from "@/assets/khiran-portrait.jpg";
 
 export function Hero() {
   return (
     <section id="top" className="relative pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
       {/* archival index marker */}
       <div className="absolute top-28 right-6 lg:right-10 mono text-[0.62rem] tracking-[0.3em] text-muted-foreground uppercase">
-        Vol. I · Folio 001 / 047
+        Portfolio · MMXXVI
       </div>
       <div className="absolute top-28 left-6 lg:left-10 mono text-[0.62rem] tracking-[0.3em] text-muted-foreground uppercase">
-        N° 7010 — MMXXVI
+        N° 001 · Chennai
       </div>
 
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/* Eyebrow */}
         <div className="flex items-center gap-4 animate-fade-up">
-          <span className="chapter-num">00 — Prologue</span>
-          <span className="h-px flex-1 max-w-[140px] bg-[var(--rule)]" />
+          <span className="chapter-num">00 — A Personal Practice</span>
+          <span className="h-px flex-1 max-w-[120px] bg-[var(--rule)]" />
           <span className="stamp">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--highlight)]" />
-            NABL · Certified
+            MBBS · MD · NABL
           </span>
         </div>
 
-        {/* Editorial headline */}
-        <h1
-          className="mt-10 serif font-normal leading-[0.92] tracking-[-0.035em] animate-fade-up"
-          style={{ animationDelay: "0.1s", fontSize: "clamp(3rem, 9vw, 8.5rem)" }}
-        >
-          The quiet <em className="italic text-primary">art</em> of
-          <br />
-          knowing the <span className="relative inline-block">
-            body.
-            <svg
-              viewBox="0 0 320 24"
-              className="absolute -bottom-2 left-0 w-full"
-              preserveAspectRatio="none"
+        {/* 2-column editorial split */}
+        <div className="mt-12 grid grid-cols-12 gap-y-10 gap-x-6 lg:gap-x-12 items-end">
+          {/* LEFT — name + lede */}
+          <div className="col-span-12 lg:col-span-7 order-2 lg:order-1">
+            <div
+              className="mono text-[0.7rem] uppercase tracking-[0.32em] text-primary animate-fade-up"
+              style={{ animationDelay: "0.05s" }}
             >
-              <path
-                d="M2 16 Q 80 2, 160 14 T 318 10"
-                stroke="oklch(0.42 0.09 165)"
-                strokeWidth="1.5"
-                fill="none"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </h1>
+              Dr. Khiran Athithyaa
+            </div>
 
-        {/* The asymmetric meta row */}
-        <div className="mt-16 grid grid-cols-12 gap-y-10 gap-x-6 lg:gap-x-10">
-          {/* Left: Lede */}
-          <div
-            className="col-span-12 lg:col-span-5 lg:col-start-1 animate-fade-up"
-            style={{ animationDelay: "0.25s" }}
-          >
-            <p className="serif text-2xl leading-snug text-pretty">
-              A monograph of preventive medicine assembled in Chennai —
-              <span className="italic"> half laboratory, half library</span>,
+            <h1
+              className="mt-4 serif font-normal leading-[0.9] tracking-[-0.035em] animate-fade-up"
+              style={{ animationDelay: "0.1s", fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)" }}
+            >
+              The quiet <em className="italic text-primary">art</em>
+              <br />
+              of reading
+              <br />
+              the <span className="relative inline-block">
+                body.
+                <svg
+                  viewBox="0 0 320 24"
+                  className="absolute -bottom-2 left-0 w-full"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M2 16 Q 80 2, 160 14 T 318 10"
+                    stroke="oklch(0.42 0.09 165)"
+                    strokeWidth="1.5"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            </h1>
+
+            <p
+              className="mt-10 serif text-xl lg:text-2xl leading-snug max-w-xl text-pretty animate-fade-up"
+              style={{ animationDelay: "0.25s" }}
+            >
+              Consultant pathologist & founder of a small diagnostic practice in
+              Mylapore — <span className="italic">half laboratory, half library</span>,
               measuring what the body whispers before it speaks.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-6">
+            <div
+              className="mt-10 flex flex-wrap items-center gap-6 animate-fade-up"
+              style={{ animationDelay: "0.35s" }}
+            >
               <a
                 href="#appointment"
-                className="group inline-flex items-center gap-3 rounded-full bg-ink text-paper px-6 py-3.5 text-sm tracking-tight"
+                className="group inline-flex items-center gap-3 rounded-full px-6 py-3.5 text-sm tracking-tight"
                 style={{ background: "var(--ink)", color: "var(--paper)" }}
               >
                 Book a consultation
@@ -71,99 +83,91 @@ export function Hero() {
                   <ArrowDownRight className="h-3.5 w-3.5 rotate-[-45deg]" />
                 </span>
               </a>
-              <a href="#services" className="editorial-link mono text-[0.72rem] uppercase tracking-[0.28em] text-foreground/80">
-                Browse the index of tests
+              <a href="#about" className="editorial-link mono text-[0.72rem] uppercase tracking-[0.28em] text-foreground/80">
+                Read the practice notes
               </a>
+            </div>
+
+            {/* Ledger row */}
+            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-px bg-[var(--rule)] border border-[var(--rule)] rounded-sm overflow-hidden">
+              {[
+                ["15 yrs", "At the bench"],
+                ["50,420", "Reports authored"],
+                ["124", "Panels offered"],
+                ["99.8%", "Accuracy index"],
+              ].map(([k, v]) => (
+                <div key={v} className="bg-card px-5 py-4">
+                  <div className="serif text-2xl leading-none">{k}</div>
+                  <div className="mt-1.5 mono text-[0.58rem] uppercase tracking-[0.24em] text-muted-foreground">
+                    {v}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Center: portrait card */}
+          {/* RIGHT — portrait */}
           <div
-            className="col-span-12 lg:col-span-4 lg:col-start-7 animate-fade-up"
-            style={{ animationDelay: "0.35s" }}
+            className="col-span-12 lg:col-span-5 order-1 lg:order-2 animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
           >
             <figure className="relative">
-              <div className="ink-card rounded-sm p-1.5 rotate-[-1.2deg] grain">
-                <div
-                  className="relative aspect-[4/5] overflow-hidden rounded-[2px]"
-                  style={{
-                    background:
-                      "linear-gradient(160deg, oklch(0.92 0.014 80), oklch(0.88 0.018 80))",
-                  }}
-                >
-                  {/* Engraved anatomical mark */}
-                  <svg
-                    viewBox="0 0 200 250"
-                    className="absolute inset-0 h-full w-full p-8 opacity-90"
-                  >
-                    <defs>
-                      <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
-                        <circle cx="1" cy="1" r="0.6" fill="oklch(0.18 0.015 60 / 0.35)" />
-                      </pattern>
-                    </defs>
-                    {/* heart silhouette */}
-                    <path
-                      d="M100 60
-                         C 70 30, 30 50, 50 100
-                         C 60 130, 100 165, 100 200
-                         C 100 165, 140 130, 150 100
-                         C 170 50, 130 30, 100 60 Z"
-                      fill="url(#dots)"
-                      stroke="oklch(0.18 0.015 60 / 0.5)"
-                      strokeWidth="0.8"
-                    />
-                    {/* annotation lines */}
-                    <g stroke="oklch(0.18 0.015 60 / 0.55)" strokeWidth="0.5" fill="none">
-                      <line x1="65" y1="80" x2="20" y2="50" />
-                      <line x1="135" y1="80" x2="180" y2="50" />
-                      <line x1="100" y1="200" x2="100" y2="235" />
-                    </g>
-                    <g
-                      className="mono"
-                      fontFamily="JetBrains Mono, monospace"
-                      fontSize="5"
-                      fill="oklch(0.18 0.015 60 / 0.75)"
-                      letterSpacing="0.5"
-                    >
-                      <text x="6" y="46">Fig. A — Atrium</text>
-                      <text x="148" y="46">Fig. B — Aorta</text>
-                      <text x="78" y="245">VENTRICULUS</text>
-                    </g>
-                  </svg>
+              {/* index strip */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 mono text-[0.58rem] uppercase tracking-[0.32em] bg-[var(--paper)] px-3 py-1 border border-[var(--rule)] rounded-full">
+                Plate I · Portrait
+              </div>
+
+              <div className="ink-card rounded-sm p-2 grain rotate-[-1.2deg]">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-muted">
+                  <img
+                    src={portrait}
+                    alt="Dr. Khiran Athithyaa — Consultant Pathologist"
+                    width={1024}
+                    height={1280}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    style={{ filter: "contrast(1.02) saturate(0.92)" }}
+                  />
+                  {/* warm vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.18_0.015_60/0.35)] via-transparent to-transparent" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-[oklch(0.18_0.015_60/0.18)]" />
+
+                  {/* corner crosshairs */}
+                  <Crosshair className="top-3 left-3" />
+                  <Crosshair className="top-3 right-3" />
+                  <Crosshair className="bottom-3 left-3" />
+                  <Crosshair className="bottom-3 right-3" />
+
+                  {/* badge */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between mono text-[0.58rem] uppercase tracking-[0.28em] text-paper/95">
+                    <span className="inline-flex items-center gap-1.5">
+                      <BadgeCheck className="h-3 w-3 text-[oklch(0.85_0.09_165)]" />
+                      Verified · NABL
+                    </span>
+                    <span>MMXXVI</span>
+                  </div>
 
                   {/* faint ECG line */}
                   <svg
                     viewBox="0 0 400 80"
-                    className="absolute bottom-6 left-0 w-full h-10"
+                    className="absolute top-1/2 left-0 w-full h-8 opacity-60"
                     preserveAspectRatio="none"
                   >
                     <path
                       d="M0 40 L80 40 L92 40 L100 20 L108 60 L120 35 L140 40 L200 40 L212 40 L220 22 L228 58 L240 40 L400 40"
                       fill="none"
-                      stroke="oklch(0.42 0.09 165)"
-                      strokeWidth="1.2"
+                      stroke="oklch(0.95 0.05 165)"
+                      strokeWidth="1"
                       className="ecg-path"
                     />
                   </svg>
                 </div>
               </div>
+
               <figcaption className="mt-3 flex items-center justify-between mono text-[0.6rem] uppercase tracking-[0.3em] text-muted-foreground">
-                <span>Plate I</span>
-                <span>Hand-engraved · 1893 / restored MMXXVI</span>
+                <span>Dr. K. Athithyaa</span>
+                <span>Founder · Pathologist</span>
               </figcaption>
             </figure>
-          </div>
-
-          {/* Right: numeric ledger */}
-          <div
-            className="col-span-12 lg:col-span-2 lg:col-start-11 animate-fade-up"
-            style={{ animationDelay: "0.45s" }}
-          >
-            <div className="rule-strong" />
-            <Ledger k="50,420" v="Reports authored" />
-            <Ledger k="124" v="Test panels" />
-            <Ledger k="99.8%" v="Accuracy index" />
-            <Ledger k="4 hrs" v="Median turnaround" />
           </div>
         </div>
 
@@ -199,13 +203,11 @@ export function Hero() {
   );
 }
 
-function Ledger({ k, v }: { k: string; v: string }) {
+function Crosshair({ className = "" }: { className?: string }) {
   return (
-    <div className="border-b border-[var(--rule)] py-4">
-      <div className="serif text-2xl leading-none">{k}</div>
-      <div className="mt-1.5 mono text-[0.6rem] uppercase tracking-[0.24em] text-muted-foreground">
-        {v}
-      </div>
+    <div className={`absolute ${className} h-3 w-3 pointer-events-none`}>
+      <span className="absolute inset-x-0 top-1/2 h-px bg-paper/70" />
+      <span className="absolute inset-y-0 left-1/2 w-px bg-paper/70" />
     </div>
   );
 }
