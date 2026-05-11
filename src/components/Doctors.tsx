@@ -1,4 +1,7 @@
 import { ChapterHeader } from "./About";
+import doctor1 from "@/assets/doctor-1.jpg";
+import doctor2 from "@/assets/doctor-2.jpg";
+import doctor3 from "@/assets/doctor-3.jpg";
 
 const doctors = [
   {
@@ -6,18 +9,21 @@ const doctors = [
     role: "Founder · Consultant Pathologist",
     bio: "MBBS, MD (Pathology). Fifteen years at the bench. Believes a report is half chemistry, half conversation.",
     plate: "Plate II",
+    image: doctor1,
   },
   {
     name: "Dr. Priya Raghavendran",
     role: "Senior Biochemist",
     bio: "DNB Biochemistry. Specialises in metabolic and endocrine profiling for adults and adolescents.",
     plate: "Plate III",
+    image: doctor2,
   },
   {
     name: "Dr. Aravind Ramesh",
     role: "Molecular Diagnostics Lead",
     bio: "PhD Molecular Biology. Heads the PCR & genetic testing wing. Published, twice over.",
     plate: "Plate IV",
+    image: doctor3,
   },
 ];
 
@@ -37,21 +43,19 @@ export function Doctors() {
             <article key={d.name} className="group">
               <div className="ink-card rounded-sm p-2 grain transition-transform group-hover:-translate-y-1">
                 <div
-                  className="relative aspect-[4/5] overflow-hidden rounded-[2px]"
-                  style={{
-                    background:
-                      "linear-gradient(160deg, oklch(0.92 0.014 80), oklch(0.86 0.018 80))",
-                  }}
+                  className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-muted"
                 >
-                  {/* Portrait monogram */}
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="text-center">
-                      <div className="serif italic text-[7rem] leading-none text-foreground/15 select-none">
-                        {d.name.split(" ").map(n => n[0]).slice(0, 2).join("")}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 ring-1 ring-inset ring-[oklch(0.18_0.015_60/0.1)]" />
+                  <img
+                    src={d.image}
+                    alt={`${d.name}, ${d.role} portrait`}
+                    width={832}
+                    height={1024}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                    style={{ filter: "grayscale(0.4) contrast(1.02) sepia(0.12)" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.18_0.015_60/0.45)] via-transparent to-transparent" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-[oklch(0.18_0.015_60/0.18)]" />
                   <div className="absolute top-3 left-3 mono text-[0.6rem] uppercase tracking-[0.28em] text-foreground/60">
                     {d.plate}
                   </div>
