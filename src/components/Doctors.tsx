@@ -1,58 +1,74 @@
-import { Label } from "./About";
-import { Stethoscope, Award } from "lucide-react";
+import { ChapterHeader } from "./About";
 
 const doctors = [
-  { name: "Dr. Khiran Athithyaa", role: "Chief Pathologist & Founder", exp: "15+ yrs", spec: "Clinical Pathology" },
-  { name: "Dr. Meera Ramanathan", role: "Senior Consultant", exp: "12 yrs", spec: "Endocrinology" },
-  { name: "Dr. Arjun Subramanian", role: "Diagnostic Radiologist", exp: "10 yrs", spec: "Imaging & Scans" },
+  {
+    name: "Dr. Khiran Athithyaa",
+    role: "Founder · Consultant Pathologist",
+    bio: "MBBS, MD (Pathology). Fifteen years at the bench. Believes a report is half chemistry, half conversation.",
+    plate: "Plate II",
+  },
+  {
+    name: "Dr. Priya Raghavendran",
+    role: "Senior Biochemist",
+    bio: "DNB Biochemistry. Specialises in metabolic and endocrine profiling for adults and adolescents.",
+    plate: "Plate III",
+  },
+  {
+    name: "Dr. Aravind Ramesh",
+    role: "Molecular Diagnostics Lead",
+    bio: "PhD Molecular Biology. Heads the PCR & genetic testing wing. Published, twice over.",
+    plate: "Plate IV",
+  },
 ];
 
 export function Doctors() {
   return (
-    <section id="doctors" className="relative py-28">
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="max-w-2xl">
-          <Label>Doctors & Experts</Label>
-          <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-            Specialists who <span className="text-gradient">care deeply</span>.
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Our medical team blends decades of expertise with a modern,
-            patient-centric approach to diagnostics and preventive care.
-          </p>
-        </div>
+    <section id="doctors" className="relative py-28 lg:py-36">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <ChapterHeader num="04" title="The Pathologists" />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <h2 className="mt-12 serif text-4xl lg:text-5xl leading-[1] tracking-[-0.02em] max-w-3xl">
+          Read by <em className="italic text-primary">human hands</em>, before
+          any algorithm reads it again.
+        </h2>
+
+        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {doctors.map((d, i) => (
-            <article
-              key={d.name}
-              className="group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1"
-              style={{ background: "var(--gradient-card)" }}
-            >
-              {/* portrait placeholder */}
-              <div className="relative mx-auto h-40 w-40 rounded-full p-[2px]" style={{ background: "var(--gradient-primary)" }}>
-                <div className="grid h-full w-full place-items-center rounded-full bg-background">
-                  <div className="grid h-32 w-32 place-items-center rounded-full bg-secondary/50">
-                    <Stethoscope className="h-10 w-10 text-primary" />
+            <article key={d.name} className="group">
+              <div className="ink-card rounded-sm p-2 grain transition-transform group-hover:-translate-y-1">
+                <div
+                  className="relative aspect-[4/5] overflow-hidden rounded-[2px]"
+                  style={{
+                    background:
+                      "linear-gradient(160deg, oklch(0.92 0.014 80), oklch(0.86 0.018 80))",
+                  }}
+                >
+                  {/* Portrait monogram */}
+                  <div className="absolute inset-0 grid place-items-center">
+                    <div className="text-center">
+                      <div className="serif italic text-[7rem] leading-none text-foreground/15 select-none">
+                        {d.name.split(" ").map(n => n[0]).slice(0, 2).join("")}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 ring-1 ring-inset ring-[oklch(0.18_0.015_60/0.1)]" />
+                  <div className="absolute top-3 left-3 mono text-[0.6rem] uppercase tracking-[0.28em] text-foreground/60">
+                    {d.plate}
+                  </div>
+                  <div className="absolute bottom-3 right-3 mono text-[0.6rem] tracking-[0.24em] text-foreground/60">
+                    № 0{i + 2}
                   </div>
                 </div>
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 rounded-full glass px-2 py-0.5 text-[10px] uppercase tracking-wider">
-                  {d.exp}
-                </span>
               </div>
-
-              <div className="mt-6 text-center">
-                <h3 className="font-display text-lg font-semibold">{d.name}</h3>
-                <p className="text-sm text-primary">{d.role}</p>
-                <p className="mt-2 inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
-                  <Award className="h-3 w-3 text-primary" />
-                  {d.spec}
+              <div className="mt-5">
+                <h3 className="serif text-2xl leading-tight">{d.name}</h3>
+                <div className="mt-1 mono text-[0.62rem] uppercase tracking-[0.28em] text-primary">
+                  {d.role}
+                </div>
+                <p className="mt-3 text-sm text-foreground/65 leading-relaxed">
+                  {d.bio}
                 </p>
               </div>
-
-              <span className="absolute right-4 top-4 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                0{i + 1}
-              </span>
             </article>
           ))}
         </div>
