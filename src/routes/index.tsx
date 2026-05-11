@@ -15,17 +15,28 @@ import { CursorScanner } from "@/components/CursorScanner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Athithyaa Diagnostics — Precision Diagnostics. Trusted Healthcare." },
+      {
+        title:
+          "Athithyaa Diagnostics — A Monograph of Preventive Medicine · Chennai",
+      },
       {
         name: "description",
         content:
-          "Dr. Khiran Athithyaa Diagnostics — futuristic medical clinic in Chennai for accurate testing, AI health analytics and patient-centered care.",
+          "Dr. Khiran Athithyaa Diagnostics — an editorial diagnostic atelier in Chennai. NABL-grade chemistry, signed reports, preventive panels read by senior pathologists.",
       },
-      { property: "og:title", content: "Athithyaa Diagnostics — Precision Healthcare" },
+      { property: "og:title", content: "Athithyaa Diagnostics — Precision, as a discipline." },
       {
         property: "og:description",
         content:
-          "AI-powered diagnostics, preventive wellness, and trusted clinical expertise in Chennai.",
+          "Half laboratory, half library. Preventive medicine, read with patience and care.",
+      },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),
@@ -34,15 +45,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="relative">
-      <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-      />
+    <main className="relative z-[1]">
       <CursorScanner />
       <Navbar />
       <Hero />

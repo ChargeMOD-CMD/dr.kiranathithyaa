@@ -1,104 +1,71 @@
-import { Droplet, FlaskConical, Activity, Stethoscope, Pill, ScanLine, ShieldPlus, Brain, FileHeart } from "lucide-react";
-import { Label } from "./About";
+import { ChapterHeader } from "./About";
+import {
+  Droplets,
+  HeartPulse,
+  Brain,
+  Dna,
+  Stethoscope,
+  Activity,
+  FlaskConical,
+  Syringe,
+} from "lucide-react";
 
-const groups = [
-  {
-    title: "General Diagnostics",
-    desc: "Routine panels for everyday health.",
-    items: [
-      { icon: Droplet, name: "Blood Tests" },
-      { icon: FlaskConical, name: "Urine Tests" },
-      { icon: Activity, name: "Thyroid Profile" },
-      { icon: Pill, name: "Diabetes Screening" },
-      { icon: FileHeart, name: "Lipid Profile" },
-    ],
-  },
-  {
-    title: "Advanced Testing",
-    desc: "Deeper insight panels for precision care.",
-    items: [
-      { icon: ScanLine, name: "Full Body Checkup" },
-      { icon: Brain, name: "Hormonal Testing" },
-      { icon: ShieldPlus, name: "Vitamin Deficiency" },
-      { icon: FlaskConical, name: "Allergy Testing" },
-      { icon: Activity, name: "Infection Screening" },
-    ],
-  },
-  {
-    title: "Clinical Support",
-    desc: "Guidance from real specialists.",
-    items: [
-      { icon: Stethoscope, name: "Doctor Consultation" },
-      { icon: Activity, name: "Health Monitoring" },
-      { icon: ShieldPlus, name: "Preventive Care" },
-      { icon: FileHeart, name: "Digital Report Analysis" },
-    ],
-  },
+const services = [
+  { icon: Droplets, name: "Complete Haematology", code: "HEM-01", tat: "4h", note: "CBC, ESR, peripheral smear" },
+  { icon: FlaskConical, name: "Biochemistry Panel", code: "BIO-02", tat: "4h", note: "Liver, kidney, lipid, electrolytes" },
+  { icon: HeartPulse, name: "Cardiac Markers", code: "CAR-03", tat: "2h", note: "Troponin-I, CK-MB, NT-proBNP" },
+  { icon: Brain, name: "Thyroid & Endocrine", code: "END-04", tat: "6h", note: "TSH, T3/T4, cortisol, insulin" },
+  { icon: Dna, name: "Molecular & PCR", code: "MOL-05", tat: "24h", note: "Infectious + genetic markers" },
+  { icon: Stethoscope, name: "Preventive Master", code: "PRV-06", tat: "Same day", note: "92 parameters · curated" },
+  { icon: Activity, name: "Diabetes Profile", code: "DIA-07", tat: "4h", note: "HbA1c, FBS, PPBS, C-peptide" },
+  { icon: Syringe, name: "Home Phlebotomy", code: "HOM-08", tat: "On request", note: "Trained nurse · sterile kit" },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="relative py-28">
-      <div
-        className="absolute inset-0 bg-grid opacity-30"
-        aria-hidden
-        style={{ maskImage: "linear-gradient(180deg, transparent, black 20%, black 80%, transparent)" }}
-      />
-      <div className="relative mx-auto max-w-7xl px-4">
-        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <Label>Diagnostic Services</Label>
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-              Comprehensive <span className="text-gradient">testing pathways</span>
+    <section id="services" className="relative py-28 lg:py-36">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <ChapterHeader num="02" title="An Index of Diagnostics" />
+
+        <div className="mt-12 grid grid-cols-12 gap-y-10 gap-x-6 lg:gap-x-10">
+          <div className="col-span-12 lg:col-span-4">
+            <h2 className="serif text-4xl lg:text-5xl leading-[1] tracking-[-0.02em]">
+              One hundred and twenty-four
+              <em className="italic text-primary"> instruments </em>
+              of reading.
             </h2>
+            <p className="mt-6 text-foreground/70 leading-relaxed max-w-sm">
+              From the first prick of the lancet to the final signed report,
+              each panel is annotated by the pathologist on duty. A selection
+              of the most-requested entries is shown below.
+            </p>
           </div>
-          <p className="max-w-md text-muted-foreground">
-            From routine wellness to advanced clinical insight — every test is
-            calibrated for accuracy and reviewed by experts.
-          </p>
-        </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {groups.map((g) => (
-            <article
-              key={g.title}
-              className="group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-glow)]"
-              style={{ background: "var(--gradient-card)" }}
-            >
-              <div className="pointer-events-none absolute -top-24 right-0 h-48 w-48 rounded-full bg-primary/15 blur-3xl opacity-0 transition-opacity group-hover:opacity-100" />
-              <header className="flex items-baseline justify-between">
-                <h3 className="font-display text-xl font-semibold">{g.title}</h3>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                  {g.items.length} tests
-                </span>
-              </header>
-              <p className="mt-2 text-sm text-muted-foreground">{g.desc}</p>
-
-              <ul className="mt-6 space-y-2">
-                {g.items.map((it) => (
-                  <li
-                    key={it.name}
-                    className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/40 px-3 py-2.5 text-sm transition-colors hover:border-primary/40 hover:bg-primary/5"
-                  >
-                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--gradient-primary)]/20 text-primary">
-                      <it.icon className="h-4 w-4" />
-                    </span>
-                    <span className="flex-1">{it.name}</span>
-                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                      NABL
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#appointment"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+          <ul className="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px bg-[var(--rule)] border border-[var(--rule)]">
+            {services.map((s, i) => (
+              <li
+                key={s.code}
+                className="group relative bg-card p-6 transition-colors hover:bg-[color-mix(in_oklab,var(--primary)_5%,var(--card))]"
               >
-                Book this panel →
-              </a>
-            </article>
-          ))}
+                <div className="flex items-start justify-between">
+                  <span className="mono text-[0.62rem] uppercase tracking-[0.28em] text-muted-foreground">
+                    № {String(i + 1).padStart(2, "0")} · {s.code}
+                  </span>
+                  <s.icon className="h-4 w-4 text-primary opacity-80" strokeWidth={1.4} />
+                </div>
+                <h3 className="mt-4 serif text-2xl leading-tight">{s.name}</h3>
+                <p className="mt-1.5 text-sm text-foreground/65">{s.note}</p>
+                <div className="mt-5 flex items-center justify-between border-t border-[var(--rule)] pt-3">
+                  <span className="mono text-[0.62rem] uppercase tracking-[0.24em] text-foreground/60">
+                    Turnaround · <span className="text-foreground">{s.tat}</span>
+                  </span>
+                  <span className="mono text-[0.7rem] text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                    Read →
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

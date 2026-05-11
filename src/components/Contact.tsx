@@ -1,62 +1,97 @@
-import { Label } from "./About";
-import { Phone, Mail, MapPin, MessageCircle, Clock, Activity } from "lucide-react";
+import { ChapterHeader } from "./About";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-28">
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <Label>Get in Touch</Label>
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-              We're here, <span className="text-gradient">whenever you need us.</span>
+    <section id="contact" className="relative py-28 lg:py-36">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <ChapterHeader num="07" title="Colophon · Find us" />
+
+        <div className="mt-14 grid grid-cols-12 gap-y-10 gap-x-6 lg:gap-x-10">
+          <div className="col-span-12 lg:col-span-6">
+            <h2 className="serif text-4xl lg:text-5xl leading-[0.98] tracking-[-0.025em] max-w-lg">
+              Pay us a visit, or send
+              <em className="italic text-primary"> a letter</em>.
             </h2>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <Card icon={Phone} label="Call us" value="+91 70103 58445" href="tel:+917010358445" />
-              <Card icon={MessageCircle} label="WhatsApp" value="Chat with care" href="https://wa.me/917010358445" />
-              <Card icon={Mail} label="Email" value="info@athithyaadiagnostics.com" href="mailto:info@athithyaadiagnostics.com" />
-              <Card icon={MapPin} label="Location" value="Chennai, Tamil Nadu" href="#" />
-            </div>
-
-            <div className="mt-6 flex items-center gap-3 glass rounded-2xl p-4">
-              <Clock className="h-5 w-5 text-primary" />
-              <div className="text-sm">
-                <div className="font-semibold">Hours</div>
-                <div className="text-muted-foreground text-xs">
-                  Mon–Fri: 7:00 AM – 9:00 PM &nbsp;·&nbsp; Sat–Sun: 7:00 AM – 6:00 PM
-                </div>
-              </div>
-            </div>
+            <dl className="mt-12 space-y-7">
+              <Item icon={MapPin} label="Address">
+                14, Bishop Wallers Avenue (East),<br />
+                Mylapore, Chennai 600 004
+              </Item>
+              <Item icon={Phone} label="Telephone">
+                <a className="editorial-link" href="tel:+917010358445">+91 70103 58445</a>
+              </Item>
+              <Item icon={Mail} label="Correspondence">
+                <a className="editorial-link" href="mailto:hello@athithyaadiagnostics.in">
+                  hello@athithyaadiagnostics.in
+                </a>
+              </Item>
+              <Item icon={Clock} label="Hours">
+                Monday — Saturday · 06:30 to 21:00<br />
+                Sunday · 07:00 to 13:00
+              </Item>
+            </dl>
           </div>
 
-          <div
-            className="relative overflow-hidden rounded-3xl p-1"
-            style={{ background: "var(--gradient-primary)" }}
-          >
-            <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-background">
-              <div className="absolute inset-0 bg-grid opacity-40" />
-              <div className="absolute inset-0 scanline opacity-60" />
-              <div className="relative grid h-full min-h-[360px] place-items-center p-10 text-center">
-                <div>
-                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-[var(--gradient-primary)] animate-pulse-glow">
-                    <Activity className="h-7 w-7 text-primary-foreground" />
-                  </div>
-                  <h3 className="mt-6 font-display text-2xl font-semibold">Visit our Clinic</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Dr. Khiran Athithyaa Diagnostics Medical Clinic
-                    <br />
-                    Chennai, Tamil Nadu, India
-                  </p>
-                  <a
-                    href="https://maps.google.com/?q=Chennai"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-semibold hover:bg-secondary/60"
+          <div className="col-span-12 lg:col-span-6">
+            <div className="ink-card rounded-sm overflow-hidden grain">
+              <div
+                className="relative aspect-[5/4]"
+                style={{
+                  background:
+                    "linear-gradient(170deg, oklch(0.93 0.014 80), oklch(0.88 0.02 80))",
+                }}
+              >
+                {/* hand-drawn map */}
+                <svg viewBox="0 0 500 400" className="absolute inset-0 h-full w-full">
+                  <g stroke="oklch(0.18 0.015 60 / 0.35)" strokeWidth="0.8" fill="none">
+                    <path d="M0 120 Q 150 100, 250 140 T 500 130" />
+                    <path d="M0 220 Q 180 200, 280 250 T 500 240" />
+                    <path d="M120 0 Q 140 150, 100 250 T 130 400" />
+                    <path d="M340 0 Q 320 150, 360 250 T 340 400" />
+                  </g>
+                  <g
+                    fontFamily="JetBrains Mono, monospace"
+                    fontSize="8"
+                    letterSpacing="1.5"
+                    fill="oklch(0.18 0.015 60 / 0.55)"
                   >
-                    Open in Google Maps →
-                  </a>
-                </div>
+                    <text x="20" y="115">CATHEDRAL RD ↗</text>
+                    <text x="20" y="215">BISHOP WALLERS AVE ↗</text>
+                    <text x="125" y="20" transform="rotate(90 125 20)">LUZ CHURCH RD</text>
+                    <text x="345" y="20" transform="rotate(90 345 20)">DR RADHAKRISHNAN SALAI</text>
+                  </g>
+                  {/* pin */}
+                  <g transform="translate(230,200)">
+                    <circle r="28" fill="oklch(0.42 0.09 165 / 0.15)" />
+                    <circle r="14" fill="oklch(0.42 0.09 165 / 0.25)" />
+                    <circle r="5" fill="oklch(0.42 0.09 165)" />
+                    <text
+                      x="20"
+                      y="6"
+                      fontFamily="Fraunces, serif"
+                      fontSize="14"
+                      fill="oklch(0.18 0.015 60)"
+                    >
+                      ✦ Athithyaa Diagnostics
+                    </text>
+                    <text
+                      x="20"
+                      y="22"
+                      fontFamily="JetBrains Mono, monospace"
+                      fontSize="7"
+                      letterSpacing="1.5"
+                      fill="oklch(0.42 0.012 60)"
+                    >
+                      13.0337° N · 80.2697° E
+                    </text>
+                  </g>
+                </svg>
+              </div>
+              <div className="flex items-center justify-between p-4 border-t border-[var(--rule)] mono text-[0.6rem] uppercase tracking-[0.28em] text-muted-foreground">
+                <span>Plate V — Site Map, Mylapore</span>
+                <span>Scale 1 : 4000</span>
               </div>
             </div>
           </div>
@@ -66,31 +101,24 @@ export function Contact() {
   );
 }
 
-function Card({
+function Item({
   icon: Icon,
   label,
-  value,
-  href,
+  children,
 }: {
-  icon: typeof Phone;
+  icon: React.ElementType;
   label: string;
-  value: string;
-  href: string;
+  children: React.ReactNode;
 }) {
   return (
-    <a
-      href={href}
-      className="group flex items-center gap-4 rounded-2xl glass p-4 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
-    >
-      <span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--gradient-primary)] text-primary-foreground">
-        <Icon className="h-4 w-4" />
-      </span>
+    <div className="grid grid-cols-[auto,1fr] gap-5 border-b border-[var(--rule)] pb-6">
+      <Icon className="h-4 w-4 mt-1 text-primary" strokeWidth={1.4} />
       <div>
-        <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+        <dt className="mono text-[0.62rem] uppercase tracking-[0.28em] text-muted-foreground">
           {label}
-        </div>
-        <div className="text-sm font-semibold">{value}</div>
+        </dt>
+        <dd className="mt-2 serif text-lg leading-snug">{children}</dd>
       </div>
-    </a>
+    </div>
   );
 }
