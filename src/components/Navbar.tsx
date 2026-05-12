@@ -38,11 +38,12 @@ export function Navbar() {
 
         <a
           href="#top"
-          className="hidden md:block absolute left-1/2 -translate-x-1/2 serif text-[1.05rem] tracking-tight"
+          className="hidden md:flex items-baseline gap-2 serif text-[1.05rem] tracking-tight whitespace-nowrap"
         >
-          <span className="italic">Dr.</span> Khiran Athithyaa
-          <span className="mx-2 text-primary">·</span>
-          <span className="mono text-[0.7rem] tracking-[0.3em] uppercase align-middle">
+          <span className="italic">Dr.</span>
+          <span>Khiran Athithyaa</span>
+          <span className="text-primary">·</span>
+          <span className="mono text-[0.65rem] tracking-[0.28em] uppercase">
             Diagnostics
           </span>
         </a>
