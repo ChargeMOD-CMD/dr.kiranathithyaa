@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Khiran Athithyaa Diagnostics — Precision Medical Clinic, Chennai</title>
+    <meta
+      name="description"
+      content="Dr. Khiran Athithyaa Diagnostics — an editorial diagnostic atelier in Chennai. NABL-grade chemistry, signed reports, preventive panels read by senior pathologists."
+    />
+    <meta property="og:title" content="Dr. Khiran Athithyaa Diagnostics — Precision Medical Clinic" />
+    <meta
+      property="og:description"
+      content="Half laboratory, half library. Preventive medicine, read with patience and care."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <!-- SPA redirect handler for GitHub Pages (works with 404.html) -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, "", redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
